@@ -46,20 +46,32 @@ public class UrchinController : MonoBehaviour
             // A wait period before the urchin explodes
             yield return new WaitForSeconds(2.0f);
 
+            int j = Random.Range(0, numPlasticSpawn);
+            
+
+            bool pickable = false;
+
             for (int i = 0; i < numPlasticSpawn; i++)
             {
+                pickable = false;
                 float spawnAngle = 360 / numPlasticSpawn * i;
 
                 // Spawns each plastic along a circular outline given an angle spawnAngle
                 Vector3 position = GetCirclePos(urchin.position, spawnAngle, 0.5f);
-
-                Plastic plasticCopy = plastic.Spawn(position);
+                
+                if(i == j)
+                {
+                    
+                    pickable = true;
+                }
+                
+                Plastic plasticCopy = plastic.Spawn(position, pickable);
 
                 // Adds velocity in the direction of the angle spawnAngle
                 Vector2 movementVelocity = new Vector2(Mathf.Sin(Mathf.Deg2Rad * spawnAngle), Mathf.Cos(Mathf.Deg2Rad * spawnAngle)) * plasticProjectileSpeed;
                 plasticCopy.GetComponent<Rigidbody2D>().velocity = movementVelocity;
 
-                StartCoroutine(WaitDestroy(plasticCopy, 3.0f));
+                StartCoroutine(WaitDestroy(plasticCopy, 3.0f, pickable));
 
             }
 
@@ -82,11 +94,16 @@ public class UrchinController : MonoBehaviour
     }
 
     // Waits to destroy the projectile object after waitTime seconds
-    private IEnumerator WaitDestroy(Plastic projectile, float waitTime)
+    private IEnumerator WaitDestroy(Plastic projectile, float waitTime, bool pick)
     { 
         // Waits for waitTime seconds and then destroy the projectile
-        yield return new WaitForSeconds(waitTime);
-        projectile.Destroy();
+        if(pick == false)
+        {
+            yield return new WaitForSeconds(waitTime);
+            projectile.Destroy();
+        }
+     
+        
     }
 
     public void Spawn(int numPlasticSpawn)

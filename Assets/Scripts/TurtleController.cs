@@ -15,8 +15,10 @@ public class TurtleController : MonoBehaviour
     private float movementSpeed; // Units per second;
     public Transform player;
     public Transform boss;
+   
     private Quaternion qTo;
-
+    public Plastic plastic;
+    public float plasticProjectileSpeed = 2.0f;
     private void Start()
     {
         targetPosition = player.position;
@@ -34,10 +36,28 @@ public class TurtleController : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            else
+            {
+                targetPosition = boss.position;
+                /*
+                Plastic plasticCopy = plastic.Spawn(transform.position, true);
+                Vector2 movementVelocity = new Vector2(Mathf.Sin(Mathf.Deg2Rad * 270), Mathf.Cos(Mathf.Deg2Rad * 270)) * plasticProjectileSpeed;
+                plasticCopy.GetComponent<Rigidbody2D>().velocity = movementVelocity;
+                */
+            }
 
             // Sets the turtle's target back to the plastic boss to create boomerang effect
-            targetPosition = boss.position;
+            
+            /*
+            if(targetPosition == boss.position)
+            {
+                targetPosition = boss.position;
+                Plastic plasticCopy = plastic.Spawn(transform.position, true);
+                Vector2 movementVelocity = new Vector2(Mathf.Sin(Mathf.Deg2Rad * 270), Mathf.Cos(Mathf.Deg2Rad * 270)) * plasticProjectileSpeed;
+                plasticCopy.GetComponent<Rigidbody2D>().velocity = movementVelocity;
 
+            }
+            */
         }
 
         // Logic for parabolic movement
