@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     public Transform indicatorplaceholder;
     public Transform player;
     public Dialogue lines;
     public DialogueTrigger Trigger;
+<<<<<<< Updated upstream
+=======
+    public EventManager _eventManager;
+>>>>>>> Stashed changes
 
     void Start()
     {
@@ -23,7 +27,12 @@ public class Interactable : MonoBehaviour
             indicatorplaceholder.gameObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Space))
             {
+<<<<<<< Updated upstream
                 Trigger.SayDialogue(lines);
+=======
+                // Trigger.SayDialogue(lines);
+                Interact();
+>>>>>>> Stashed changes
             }
         } else {
             indicatorplaceholder.gameObject.SetActive(false);
@@ -31,7 +40,7 @@ public class Interactable : MonoBehaviour
     }
 
     // Runs the dialogue attached to this interactable and returns whether or not the player can move or not
-    public bool Interact()
+    public virtual bool Interact()
     {
         return GetComponent<DialogueTrigger>().SayDialogue(lines);
     }

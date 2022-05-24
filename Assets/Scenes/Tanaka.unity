@@ -629,8 +629,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -87.812, y: 108}
   m_SizeDelta: {x: 527.5767, y: 42}
+=======
+  m_AnchoredPosition: {x: 3.9514, y: 90.1819}
+  m_SizeDelta: {x: 711.1036, y: 77.6363}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426710291
 MonoBehaviour:
@@ -777,6 +782,10 @@ MonoBehaviour:
   indicatorplaceholder: {fileID: 857224214}
   player: {fileID: 281736199}
   Trigger: {fileID: 1314170067}
+<<<<<<< Updated upstream
+=======
+  EventManager: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!1 &711968935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,6 +1798,10 @@ GameObject:
   - component: {fileID: 1853401361}
   - component: {fileID: 1853401360}
   - component: {fileID: 1853401359}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 1853401362}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1845,3 +1858,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &1853401362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853401358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9207c9f3218eb14096d817447a14676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Biscuit: 0
+  Net: 0
+  Stick: 0
+>>>>>>> Stashed changes
